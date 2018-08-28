@@ -1,0 +1,23 @@
+.big-list {
+    margin: 10px 0 10px 5px;
+
+    li {
+        font-size: 15px;
+        list-style-type:none;
+
+        h2 {
+            display: inline;
+        }
+
+        &:before {
+            color: $link-color;
+            content: "•";
+            font-size: 35px;
+            padding-right: 10px;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 5px;
+        }
+    }
+}

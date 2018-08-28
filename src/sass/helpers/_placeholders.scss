@@ -1,0 +1,58 @@
+// Margin/padding/border 
+%no-border { border: 0; }
+%no-margin { margin: 0; }
+%no-padding { padding: 0; }
+
+// Display styles
+$display-placeholders: none, inline, inline-block, block, table, table-row, table-cell;
+@each $property in $display-placeholders {
+    %display-#{$property} {
+	    display: $property;
+    }
+}
+
+// Position styles
+$position-placeholders: absolute, relative, fixed;
+@each $property in $position-placeholders {
+    %position-#{$property} {
+	    position: $property;
+    }
+}
+
+// Float positions
+$float-placeholders: none, left, right;
+@each $property in $float-placeholders {
+    %float-#{$property} {
+	    float: $property;
+    }
+}
+
+// Typography styles
+$text-decoration-placeholders: underline, none;
+@each $property in $text-decoration-placeholders {
+    %text-decoration-#{$property} {
+	    text-decoration: $property;
+    }
+}
+
+$text-align-placeholders: left, center, right, justify;
+@each $property in $text-align-placeholders {
+    %text-align-#{$property} {
+	    text-align: $property;
+    }
+}
+
+$text-transform-placeholders: none, capitalize, uppercase, lowercase, full-width;
+@each $property in $text-transform-placeholders {
+    %text-transform-#{$property} {
+	    text-transform: $property;
+    }
+}
+
+// Lists
+$list-placeholders: none, image-none, position-inside, position-outside, type-disc, type-circle, type-square;
+@each $property in $list-placeholders {
+    %list-style-#{$property} {
+        list-style: $property;
+    }
+}

@@ -1,0 +1,118 @@
+// ------------------------
+// Define row-cols-x layout
+//
+// Example Use:
+// <div class="row row-cols-3">
+//   <div class="col"></div>
+//   <div class="col"></div>
+//   <div class="col"></div>
+// </div>
+// ------------------------
+$row-bottom-margin: 1.5rem;
+$column-right-margin: 1.5rem;
+
+.row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $row-bottom-margin;
+
+    @include media-breakpoint-up(md) {
+        flex-direction: row;
+
+        &.columns {
+            flex-direction: column;
+        }
+    }
+
+    &.block {
+        display: block;
+    }
+}
+
+@for $col from 1 through $total-columns {
+    .row-cols-#{$col} {
+        .col {
+            // By default, always be full width - mobile first
+            display: block;
+            margin-bottom: $row-bottom-margin;
+            width: 100%;
+            // At tabletPlus, start to resize
+            @include media-breakpoint-up(md) {
+                $margin-sum: ($column-right-margin * ($col - 1)) / $col;
+                $perc-width: percentage(($total-columns / $col) / $total-columns);
+
+                display: inline-block;
+                margin-bottom: 0;
+                margin-right: $column-right-margin;
+                width: calc(#{$perc-width} - #{$margin-sum});
+
+                &:not(:first-child) {
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .row {
+        .col {
+            display: inline-block;
+            margin-bottom: $column-right-margin;
+            width: 100%;
+
+            @include media-breakpoint-up(md) {
+                margin-bottom: 0;
+            }
+        }
+
+        .col.col-#{$col} {
+            // By default, always be full width - mobile first
+            display: block;
+            margin-bottom: $column-right-margin;
+            width: 100%;
+            // At tabletPlus, start to resize
+            @include media-breakpoint-up(md) {
+                $col-count: $total-columns / $col;
+                $margin-sum: ($column-right-margin * ($col-count - 1)) / $col-count;
+                $perc-width: percentage(($total-columns / $col-count) / $total-columns);
+
+                display: inline-block;
+                margin-bottom: 0;
+                margin-right: $column-right-margin;
+                width: calc(#{$perc-width} - #{$margin-sum});
+
+                &:not(:first-child) {
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// ----------------------------------
+// Additional tweaks for mediaqueries
+// ----------------------------------
+
+.pg-hdr {
+    color: $color-primary;
+    font-weight: $font-weight-bold;
+    letter-spacing: .4px;
+    line-height: 1.2;
+    text-transform: uppercase;
+
+    &:after {
+        border-top: 1px solid $black;
+        content: '';
+        display: block;
+        margin: 1.1rem auto;
+        width: 65px;
+
+        @include media-breakpoint-up(lg) {
+            margin: 1.1rem 0;
+        }
+    }
+}

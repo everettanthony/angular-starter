@@ -1,0 +1,73 @@
+// ----------------------
+// Dimensions + Grid Vars
+// ----------------------
+
+$max-width-px: 1200px;
+$base-font-size: 16px;
+$base-line-height: 26px;
+$hdr-height: 179px;
+$hdr-height-mbl: 60px;
+
+// Susy Settings
+$total-columns:	12;
+$column-width:	4em;
+
+// -------------------
+// Typography Settings
+// -------------------
+
+$font-primary: 'Roboto', sans-serif;
+$font-secondary: 'Roboto Condensed', sans-serif;
+$font-tertiary: 'PT Serif', serif;
+$font-bold: '';
+
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+
+// --------------------------
+// Colors
+// --------------------------
+
+// Primary Colors
+$color-primary: #182952;
+$color-primary-dark: darken($color-primary, 7.5%);
+$color-primary-light: lighten($color-primary, 7.5%);
+
+// Secondary Colors
+$color-secondary: #2b3595;
+$color-secondary-dark: darken($color-secondary, 7.5%);
+$color-secondary-light: lighten($color-secondary, 7.5%);
+
+// Tertiary Colors
+$color-tertiary: #7045af;
+$color-tertiary-dark: darken($color-tertiary, 7.5%);
+$color-tertiary-light: lighten($color-tertiary, 7.5%);
+
+// Helper Colors
+$white: #fff;
+$black: #000;
+
+// Alert/Messaging Colors 
+$status-active: #49d07b;
+$status-pending: #f9c159;
+$status-delete: #f26463;
+$status-msg: $color-primary-light;
+
+$action-success: #4bd9c4;
+$action-success-dark: darken($action-success, 10%);
+$action-delete: #f4555a;
+$action-none: #60a6ff;
+
+// --------------------------
+// Default Body Styles
+// --------------------------
+
+$body-background: $white;
+$body-color: lighten($black, 17.5%);
+
+// --------------------------
+// Links
+// --------------------------
+
+$link-color: #e14594;
+$link-color-hover: darken($link-color, 15%);
