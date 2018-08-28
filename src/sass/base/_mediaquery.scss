@@ -1,4 +1,4 @@
-$grid-bp: (
+$grid-breakpoints: (
   xs: 0,
   sm: 576px,
   md: 768px,
@@ -7,55 +7,42 @@ $grid-bp: (
   xxl: 1400px,
   3xl: 1600px,
   4xl: 1900px
-) !default;
-
-// Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
-// Makes the @content apply to the given breakpoint and wider.
-@mixin media-breakpoint($name, $breakpoints: $grid-bp) {
-    $min: breakpoint-min($name, $breakpoints);
-    @if $min {
-        @media (min-width: $min) {
-        @content;
-    }
-    } @else {
-        @content;
-    }
-}
+);
 
 body {
     background: red !important;
 }
-@include media-breakpoint(sm) {
+@include media-breakpoint-up(sm) {
     body {
         background: green !important;
     }
 }
-@include media-breakpoint(md) {
+@include media-breakpoint-up(md) {
     body {
         background: blue !important;
     }
 }
-@include media-breakpoint(lg) {
+@include media-breakpoint-up(lg) {
     body {
         background: yellow !important;
     }
 }
-@include media-breakpoint(xl) {
+@include media-breakpoint-up(xl) {
     body {
         background: purple !important;
     }
 }
-@include media-breakpoint(xxl) {
+@include media-breakpoint-up(xxl) {
     body {
         background: $color-primary !important;
     }
 }
-@include media-breakpoint(3xl) {
+@include media-breakpoint-up(3xl) {
     body {
         background: $color-secondary !important;
     }
 }
-@include media-breakpoint(4xl) {
+@include media-breakpoint-up(4xl) {
     body {
         background: $white !important;
     }
